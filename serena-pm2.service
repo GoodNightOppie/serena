@@ -1,0 +1,29 @@
+[Unit]
+Description=PM2 process manager for Serena MCP Server
+Documentation=https://pm2.keymetrics.io/
+After=network.target
+
+[Service]
+Type=forking
+User=dev
+LimitNOFILE=infinity
+LimitNPROC=infinity
+LimitCORE=infinity
+Environment="PATH=/home/dev/.local/bin:/usr/local/bin:/usr/bin:/bin"
+Environment="PM2_HOME=/home/dev/.pm2"
+PIDFile=/home/dev/.pm2/pm2.pid
+
+# Start PM2 and the Serena application
+ExecStart=/home/dev/workspace/serena/node_modules/.bin/pm2 resurrect
+ExecReload=/home/dev/workspace/serena/node_modules/.bin/pm2 reload all
+ExecStop=/home/dev/workspace/serena/node_modules/.bin/pm2 kill
+
+# Ensure the service restarts on failure
+Restart=on-failure
+RestartSec=10s
+
+# Give it time to start
+TimeoutStartSec=90s
+
+[Install]
+WantedBy=multi-user.target

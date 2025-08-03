@@ -1,0 +1,34 @@
+{
+  "name": "serena",
+  "version": "1.0.0",
+  "description": "<p align=\"center\" style=\"text-align:center\">   <img src=\"resources/serena-logo.svg#gh-light-mode-only\" style=\"width:500px\">   <img src=\"resources/serena-logo-dark-mode.svg#gh-dark-mode-only\" style=\"width:500px\"> </p>",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop serena-mcp-server",
+    "pm2:restart": "pm2 restart serena-mcp-server",
+    "pm2:logs": "pm2 logs serena-mcp-server",
+    "pm2:status": "pm2 status",
+    "pm2:save": "pm2 save",
+    "pm2:startup": "pm2 startup",
+    "pm2:delete": "pm2 delete serena-mcp-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oraios/serena.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oraios/serena/issues"
+  },
+  "homepage": "https://github.com/oraios/serena#readme",
+  "devDependencies": {
+    "pm2": "^6.0.8"
+  }
+}
